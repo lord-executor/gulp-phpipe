@@ -1,0 +1,23 @@
+{
+  "name": "gulp-phpipe",
+  "version": "1.0.0",
+  "description": "Run files through the PHP processor",
+  "keywords": [
+  	"gulpplugin"
+  ],
+  "homepage": "https://github.com/lord-executor/gulp-phpipe",
+  "bugs": "https://github.com/lord-executor/gulp-phpipe/issues",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": {
+  	"name": "Lukas Angerer",
+  	"email": "executor.dev@gmail.com"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "through2": "^2.0.1"
+  }
+}
