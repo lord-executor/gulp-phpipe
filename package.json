@@ -19,5 +19,8 @@
   "dependencies": {
     "gulp": "^3.9.1",
     "through2": "^2.0.1"
+  },
+  "engines": {
+    "node" : ">=5.0.0"
   }
 }

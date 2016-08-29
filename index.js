@@ -1,13 +1,17 @@
-var exec = require('child_process').exec,
-	spawn = require('child_process').spawn,
+var spawn = require('child_process').spawn,
+	extend = require('util')._extend,
 	through = require('through2'),
-	Path = require('path'),
 	PluginError = require('gulp-util').PluginError;
 
 // consts
 var PLUGIN_NAME = 'gulp-phpipe';
 
-module.exports = () => {
+module.exports = (options) => {
+	options = Object.assign({
+		phpBin: 'php',
+		phpArgs: [],
+	}, options);
+
 	return through.obj(function (file, encoding, callback) {
 		if (file.isNull()) {
 			// nothing to do
@@ -21,12 +25,9 @@ module.exports = () => {
 		}
 
 		var fileClone = file.clone(),
-			name = Path.basename(file.path, Path.extname(file.path)),
-			phpProcess = spawn('php'),
+			phpProcess = spawn(options.phpBin, options.phpArgs),
 			phpOut = [],
 			phpErr = [];
-
-		fileClone.path = Path.join(Path.dirname(file.path), name + '.html');
 
 		phpProcess.stdout.on('data', (data) => {
 			phpOut.push(data);
