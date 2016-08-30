@@ -76,7 +76,7 @@ gulp.task('default', function () {
 
 ```
 
-This results in `compiled/base.html
+This results in `compiled/base.html`
 ```html
 <h1>Test</h1>
 <h2>This is included from /path/to/current/gulp/dir/templates/inner.php</h2>
