@@ -10,6 +10,8 @@ module.exports = (options) => {
 	options = Object.assign({
 		phpBin: 'php',
 		phpArgs: [],
+		env: null,
+		cwd: null,
 	}, options);
 
 	return through.obj(function (file, encoding, callback) {
@@ -25,7 +27,10 @@ module.exports = (options) => {
 		}
 
 		var fileClone = file.clone(),
-			phpProcess = spawn(options.phpBin, options.phpArgs),
+			phpProcess = spawn(options.phpBin, options.phpArgs, {
+				env: options.env,
+				cwd: options.cwd || file.base,
+			}),
 			phpOut = [],
 			phpErr = [];
 
