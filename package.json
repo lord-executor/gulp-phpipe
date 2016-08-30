@@ -1,6 +1,6 @@
 {
   "name": "gulp-phpipe",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Run files through the PHP processor",
   "keywords": [
   	"gulpplugin"
